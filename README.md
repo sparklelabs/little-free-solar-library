@@ -1,5 +1,6 @@
 # Little Free Solar Library
 
+```
 +------------------------------------------------+
 |   🌞 LITTLE FREE SOLAR LIBRARY                 |
 |                                                |
@@ -13,6 +14,7 @@
 |                                                |
 |   💡 Powered by the sun. Always free.          |
 +------------------------------------------------+
+```
 
 ## Status
 
