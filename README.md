@@ -16,6 +16,8 @@
 +------------------------------------------------+
 ```
 
+![](src/devices_illo.svg)
+
 ## Status
 
 Creates a wireless access point on a RaspberryPi Pico and serves html files.
