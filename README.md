@@ -32,3 +32,7 @@ Creates a wireless access point on a RaspberryPi Pico and serves html files.
 - Enclosure designs
 - DIY guide
 - [Library content](library_content.md)
+
+## Home Page Sketch
+
+![](working/library_page.png)
