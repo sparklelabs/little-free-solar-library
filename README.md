@@ -17,7 +17,7 @@
 +------------------------------------------------+
 ```
 
-![](src/devices_illo.svg)
+![](src/devices_illo.png)
 
 ## Status
 
