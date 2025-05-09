@@ -2,15 +2,15 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="7.3116055in"
-   height="6.1957922in"
-   viewBox="0 0 7.3116055 6.1957922"
+   width="7.5824246in"
+   height="6.4305372in"
+   viewBox="0 0 7.5824247 6.4305372"
    version="1.1"
    id="svg1"
    xml:space="preserve"
    inkscape:version="1.4.1 (93de688d07, 2025-03-30)"
    sodipodi:docname="devices_illo.svg"
-   inkscape:export-filename="devices_illo.png"
+   inkscape:export-filename="../src/devices_illo.png"
    inkscape:export-xdpi="164.12263"
    inkscape:export-ydpi="164.12263"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -27,20 +27,20 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:zoom="1.4707257"
-     inkscape:cx="297.47219"
-     inkscape:cy="347.78748"
+     inkscape:zoom="1.0399601"
+     inkscape:cx="275.49133"
+     inkscape:cy="264.91401"
      inkscape:window-width="2252"
      inkscape:window-height="1392"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer1"><inkscape:grid
+     inkscape:current-layer="layer2"><inkscape:grid
        type="axonomgrid"
        id="grid1"
        units="mm"
-       originx="-0.49251514"
-       originy="-2.0879026"
+       originx="-0.36230179"
+       originy="-1.977722"
        spacingx="3.7795276"
        spacingy="0.039370079"
        empcolor="#0099e5"
@@ -691,7 +691,13 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Layer 2"
-     transform="translate(-0.49251513,-2.0879025)"><g
+     transform="translate(-0.36230177,-1.9777219)"><rect
+       style="fill:#ffffff;stroke-width:0.0208333;stroke-linecap:round;stroke-linejoin:bevel"
+       id="rect1"
+       width="7.5824246"
+       height="6.4305372"
+       x="0.36230177"
+       y="1.9777219" /><g
        id="g676"
        transform="translate(-0.04166666,0.89583331)"><path
          style="fill:none;fill-opacity:1;stroke:#ff711e;stroke-width:0.0208333;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -713,7 +719,7 @@
      inkscape:groupmode="layer"
      id="layer1"
      style="display:inline"
-     transform="translate(-0.492515, -2.0879)"><g
+     transform="translate(-0.36230164,-1.9777194)"><g
        id="g664"
        style="fill:#ffffff;fill-opacity:1"
        transform="translate(0.06249999,0.89583331)"><path
