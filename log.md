@@ -55,3 +55,26 @@ We reviewed the feasibility of using the **TalentCell Lithium-Ion Battery (Model
 3.  **For a true off-grid solar setup**: 
     *   Use a standard **3.7V Lithium-Ion cell** (e.g., Adafruit #5035) with the bq24074 charger and the 6V solar panel.
     *   *Or*, keep the TalentCell battery but replace the 6V panel and bq24074 charger with a **12V panel ($V_{oc} \ge 18\text{V}$)** and a **12V Solar Charge Controller** that has a 12V output.
+
+---
+
+## 2026-07-05: Review of Alternative Battery Chemistries & Form Factors for bq24074
+
+We evaluated alternative battery varieties (including AA rechargeables and bare flat lithium cells) for compatibility with the **Adafruit bq24074 charger** and the **6V solar panel**:
+
+### 1. Flat Lithium Pouch Cells (No Electronics)
+*   **Verdict**: **YES (COMPATIBLE)**
+*   **Details**: If the flat lithium battery has a nominal rating of **3.7V** (charging to **4.2V**), it is chemically identical to standard Li-Po batteries and 100% compatible with the bq24074.
+*   **Safety Precaution**: Since these are "bare leads" with no built-in protection circuit board (PCB), the bq24074 charger will handle the charging logic, but the cell itself has no safety cutoff for overdischarge (draining below 3.0V). Connecting them requires careful handling to avoid short circuits.
+*   **Action**: Solder a 2-pin JST-PH connector to the positive (+) and negative (-) leads to plug directly into the charger board.
+
+### 2. Rechargeable AA Batteries (NiMH / NiCd)
+*   **Verdict**: **NO (INCOMPATIBLE)**
+*   **Details**: Rechargeable AA batteries use Nickel-Metal Hydride (NiMH) or Nickel-Cadmium (NiCd) chemistries, which run at **1.2V nominal**. 
+*   **Safety Warning**: The bq24074 is strictly a **Lithium-Ion/Polymer** charger (terminating charge at 4.2V). Attempting to charge NiMH batteries with it will cause them to overheat, leak, vent, or fail catastrophically.
+
+### 3. Cylindrical Lithium-Ion Cells (18650, 21700, 26650)
+*   **Verdict**: **YES (COMPATIBLE)**
+*   **Details**: These are standard 3.7V nominal Lithium-Ion cells (commonly salvaged from old power banks or laptops). They charge to 4.2V and are fully compatible.
+*   **Action**: Use a single cell, or connect multiple cells **strictly in parallel** (all positive leads together, all negative leads together) to multiply capacity while keeping the voltage at 3.7V. *Never connect them in series.*
+
