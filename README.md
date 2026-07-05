@@ -28,7 +28,7 @@
 ```
 &nbsp;   
 
-![](src/devices_illo.png)
+![](working/devices-illo.png)
 
 The *Little Free Solar Library* is a small, solar-powered device that creates a local, offline digital library. It broadcasts a Wi-Fi signal, allowing people nearby to connect and access  local flora &amp; fauna information, field recordings, environmental data, and civic information, local resources, zines, and instructions on how to build your solar library. No internet required. It’s designed to be simple, easy to make, and powered by the sun.
 
