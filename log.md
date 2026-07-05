@@ -78,3 +78,29 @@ We evaluated alternative battery varieties (including AA rechargeables and bare 
 *   **Details**: These are standard 3.7V nominal Lithium-Ion cells (commonly salvaged from old power banks or laptops). They charge to 4.2V and are fully compatible.
 *   **Action**: Use a single cell, or connect multiple cells **strictly in parallel** (all positive leads together, all negative leads together) to multiply capacity while keeping the voltage at 3.7V. *Never connect them in series.*
 
+---
+
+## 2026-07-05: Review of 3.7V 110mAh Small Battery Compatibility
+
+We evaluated the suitability of using a small **3.7V 110mAh Li-Po battery** for this project.
+
+### 1. Voltage Compatibility
+*   **Verdict**: **COMPATIBLE**
+*   **Details**: The nominal voltage (3.7V) and chemistry are a perfect match for the bq24074 charger.
+
+### 2. Runtime Math (Metro ESP32-S3)
+*   **Capacity**: 110mAh (0.11 Ah / ~0.4 Wh)
+*   **Current Draw**: The Metro ESP32-S3 draws between **100mA and 150mA** when running the captive portal server and broadcasting Wi-Fi.
+*   **Calculation**:
+    $$\text{Runtime} = \frac{110\text{ mAh}}{120\text{ mA}} \approx 0.9\text{ hours} \approx 55\text{ minutes}$$
+*   **Conclusion**: A fully charged 110mAh battery will only power the Metro for **about 45 to 60 minutes** before draining.
+
+### 3. Safety Warning: Charge Rate ($C$-rate)
+*   **Verdict**: > [!CAUTION]
+    > **UNSAFE TO CHARGE WITHOUT MODIFICATION**
+    > * Lithium batteries of this size should be charged at **1C or less** for safety (1C for a 110mAh battery is **110mA**).
+    > * The Adafruit bq24074 board is pre-configured with a charge current resistor setting of **500mA**. 
+    > * Charging a 110mAh battery at 500mA is a **4.5C charge rate**. This is extremely dangerous and can cause the small battery to overheat, swell (puff up), leak, or catch fire.
+*   **Recommendation**: Do not connect this tiny battery to the bq24074 charger unless you desolder and replace the charging program resistor on the board to limit the output current to $\le 100\text{mA}$.
+
+
