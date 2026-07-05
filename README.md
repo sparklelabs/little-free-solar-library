@@ -50,6 +50,31 @@ Creates a wireless access point on a RaspberryPi Pico and serves html files.
 - DIY guide
 - [Library content](library_content.md)
 
+---
+
+## Circuit Diagram & Description
+
+The off-grid power system is governed by the **Adafruit bq24074 Charger Board**, which implements dynamic power path management (it routes power to the Metro first, and uses any leftover current to charge the battery).
+
+### Connections
+1. **Solar Input**: The 6V 2W Solar Panel (3.5mm x 1.1mm plug) connects via the **3.5mm-to-2.1mm DC Jack Adapter** into the charger board's **2.1mm DC Barrel Jack** input.
+2. **Battery**: The 3.7V Lithium-Ion Battery connects to the charger's **BATT** JST-PH port.
+3. **Load (Microcontroller)**: The charger's **LOAD** JST-PH port connects to the **Adafruit Metro ESP32-S3** power pins (or USB-C port). The LOAD port provides a regulated 4.4V output, which safely feeds the Metro's onboard 3.3V regulator.
+
+```mermaid
+graph TD
+    SolarPanel["6V 2W Solar Panel<br>(3.5mm x 1.1mm Plug)"] -->|3.5mm to 2.1mm Adapter| DCIN["Charger DC IN<br>(2.1mm Barrel Jack)"]
+    
+    subgraph Charger ["Adafruit bq24074 Charger Board"]
+        DCIN
+        BATT_PORT["BATT Port<br>(JST-PH)"]
+        LOAD_PORT["LOAD Port<br>(JST-PH)"]
+    end
+    
+    BATT_PORT <-->|2-pin JST-PH| Battery["3.7V Li-Ion Battery<br>(e.g. 10050mAh)"]
+    LOAD_PORT -->|JST-PH to USB-C or 5V/GND Pins| Metro["Adafruit Metro ESP32-S3<br>(Power Input)"]
+```
+
 ### Parts
 
 - [Adafruit Metro ESP32-S3 (space for files)](https://www.adafruit.com/product/5500) OR [Raspberry Pi Pico W (little space but cheap)](https://www.adafruit.com/product/6315)
