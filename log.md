@@ -103,4 +103,45 @@ We evaluated the suitability of using a small **3.7V 110mAh Li-Po battery** for 
     > * Charging a 110mAh battery at 500mA is a **4.5C charge rate**. This is extremely dangerous and can cause the small battery to overheat, swell (puff up), leak, or catch fire.
 *   **Recommendation**: Do not connect this tiny battery to the bq24074 charger unless you desolder and replace the charging program resistor on the board to limit the output current to $\le 100\text{mA}$.
 
+---
+
+## 2026-07-05: Sizing a Battery for 24-Hour Continuous Operation
+
+We calculated the minimum battery capacity and safety margins required to maintain continuous Wi-Fi broadcasting and web serving for a full 24-hour period.
+
+### 1. The Power Budget Math
+*   **Average Metro ESP32-S3 Current Draw ($I_{\text{draw}}$)**: 
+    *   *Baseline*: ~120mA (when broadcasting AP with minor traffic).
+    *   *Active Peak*: ~150mA (spikes up to 240mA during page requests/transmits).
+*   **Target Runtime ($t$)**: 24 hours
+*   **Minimum Theoretical Capacity**:
+    *   At 120mA draw: $120\text{mA} \times 24\text{h} = 2,880\text{mAh}$
+    *   At 150mA draw: $150\text{mA} \times 24\text{h} = 3,600\text{mAh}$
+
+### 2. Sizing with a Safety Margin (25%)
+To ensure reliable operation under colder temperatures, battery degradation over time, and the standard cut-off limits of battery protection circuits (which cut off around 3.0V, leaving ~5-10% of nominal charge unused), we apply a **25% safety buffer**:
+*   **Conservative Target Capacity (120mA baseline)**: $\approx \mathbf{3,600\text{mAh}}$
+*   **High-Traffic Target Capacity (150mA active)**: $\approx \mathbf{4,500\text{mAh}}$
+
+---
+
+### 3. Recommended Battery Options (All 3.7V / 4.2V max)
+
+Since the Adafruit bq24074 board charges at **500mA** by default, these larger capacities will charge at a highly safe and gentle rate ($<0.15\text{C}$).
+
+#### Option A: Cylindrical 18650 Cells (Easy to Salvage or Buy)
+*   **Single High-Capacity Cell**: A single high-grade 18650 cell (e.g. Sanyo/Panasonic NCR18650B) provides **3400mAh–3500mAh**. This meets the 24-hour minimum baseline but has a thin safety margin.
+*   **2x 18650 Cells in Parallel**: Connecting two standard 18650 cells (e.g. 2600mAh each) in parallel yields **5200mAh**.
+    *   *Runtime*: **35 to 43 hours** of continuous broadcasting.
+    *   *Verdict*: This is the **ideal hobbyist sweet spot** for cost, size, and safety margin.
+
+#### Option B: Pre-Assembled Flat Li-Po Packs (Plug-and-Play)
+*   **3.7V 4400mAh Li-Po** (e.g., Adafruit #358): Double-cell pouch pack with JST-PH connector.
+    *   *Runtime*: **29 to 36 hours** of continuous operation.
+*   **3.7V 6600mAh Li-Po** (e.g., Adafruit #353): Triple-cell pouch pack.
+    *   *Runtime*: **44 to 55 hours** of continuous operation.
+*   **3.7V 10050mAh Li-Ion** (e.g., Adafruit #5035): Triple-cell cylindrical block (original BOM item).
+    *   *Runtime*: **70 to 80+ hours** (almost 3 full days of completely dark autonomy).
+
+
 
